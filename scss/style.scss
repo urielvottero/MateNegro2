@@ -1,0 +1,157 @@
+$color:#C68B59;
+$color:#865439;
+$color-primary:#EEEEEE;
+$color-secondary: #8a7469;
+
+
+
+  .navbar-dark {
+    .navbar-nav {
+        .nav-link {
+            &.active {
+                background: $color-secondary;
+                border-radius: 5px;
+                border: solid 1px darken($color-secondary, 25%);
+                color: white;
+            }
+        }
+    }
+  }
+
+
+  .bg-matenegro {
+    background: linear-gradient(rgba(0,0,0,0.75), rgba(0,0,0,0.75)), url('../img/img1.jpg');
+    color:white;
+    background-size: cover;
+  }
+  
+  main {
+    &.landing {
+        margin-top: 58px;
+        .card-body.mi-card-body {
+            position: relative;
+            display: flex;
+            flex-direction: column;
+            min-width: 0;
+            word-wrap: break-word;
+            background-color: #d1af73;
+            background-clip: border-box;
+            border: 0px solid rgba(0,0,0, .125);
+            border-radius: .25rem;
+        }
+        h1 {
+            color:#FFF;
+        }
+        .lead {
+            color:#FFF;
+            .btn {
+                background: #CCC;
+                color:#FFF;
+            }
+        }
+    }
+    &.quiensoy {
+    background: $color-primary;
+        .img-bg {
+            width: 100%;
+            height: 450px;
+            background-image: url("../img/_MG_4647.jpg");
+            background-position: center center;
+            background-repeat: no-repeat;
+            background-size: cover;
+        }
+    }
+
+    &.productos {
+        .items-mn {
+            background: $color-secondary;
+            color:white;
+            position: relative;
+            transition: ease-in-out 100ms;
+
+            .ribbon {
+                position: absolute;
+                top: -9px;
+                right: -9px;
+                p {
+                    position: absolute;
+                    transform: rotate(45deg);
+                    top: 28px;
+                    right: 0px;
+                    font-size: 75%;
+                }
+                img {
+                    max-width: 100px;
+                }
+            }
+            &:hover {
+                transform: scale(1.05);
+                box-shadow: 0px 5px 20px rgba(0,0,0,0.2);
+                background: darken($color-secondary, 10%);
+                cursor: pointer;
+            }
+            &.principal{
+                background-color: #446282;
+                &:hover {
+                    transform: scale(1.05);
+                    box-shadow: 0px 5px 20px rgba(0,0,0,0.2);
+                    background: darken(#446282, 10%);
+                }
+            }
+        }
+    }
+
+    .bg-contactame {
+        background-color: $color-primary;
+
+    }
+    .destacados {
+        padding: 50px;
+        color: white;
+    }
+
+    &.contacto {
+        .info-contacto {
+            background: #212529;
+            color: white;
+            border-radius: 50px 0 50px 0;
+            position: relative;
+            .logo-blanco {
+                max-height: 50px;
+                position: absolute;
+                bottom: 15px;
+                right: 50px;
+            }
+        }
+        .img-bg {
+            width: 100%;
+            height: 300px;
+            background: #CCC;
+            background-image:linear-gradient(rgba(0,0,0,0.25), rgba(0,0,0,0.25)), url("../img/tb2.jpg");
+            background-position: center center;
+            background-repeat: no-repeat;
+            background-size: cover;
+        }
+
+    }
+   
+  }
+
+
+    @media (max-width: 1023px) {
+        main {
+            &.quiensoy, &.contacto {
+                .p-5 {
+                    padding: 15px !important;
+                }
+            }
+
+            &.contacto {
+                img {
+                    max-width: 200px;
+                    padding-top: 20px;
+                }
+            }
+
+        }
+    }
