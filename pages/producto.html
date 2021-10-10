@@ -11,6 +11,7 @@
     <link
     rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"/>
     <link rel="shortcut icon" href="../img/favicon.png">
+    <link href="https://fonts.googleapis.com/css2?family=Material+Icons" rel="stylesheet">
   </head>
   <body>  
     <header>
@@ -60,6 +61,17 @@
       </div>
 
       <div class="container">
+        <div>
+          <button type="button" class="btn btn-dark position-relative" onClick="limpiarCarrito()">
+            <span class="material-icons">
+              shopping_cart
+              </span>
+            <span class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger">
+              <div id="contador"></div>
+            </span>
+          </button>
+        </div>
+        <hr>
         <div class="row">
           <div class="col-12 col-md-4 mb-3">
             <div class="row">
@@ -67,7 +79,7 @@
                 <div class="items-mn principal card animate__animated animate__bounce ">
                   <div class="ribbon">
                     <p>Más vendido</p>
-                    <img src="https://freepikpsd.com/media/2019/10/corner-ribbon-png-3-Transparent-Images-Free.png" alt="..."/>
+                    <img src="https://pngimage.net/wp-content/uploads/2018/05/corner-ribbon-png-3.png" alt="..."/>
                   </div>
                   <img src="../img/ImgP1.jpg" class="d-block img-fluid" alt="imagen producto">
                   <div class="producto-text card-body mi-card-body">
@@ -80,118 +92,11 @@
               </div>
             </div>
           </div>
+
+          
+
           <div class="col-12 col-md-8">
-            <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 g-3">
-              <div class="col">
-                <div class="items-mn card ">
-                  <img src="../img/fotoProducto1 (1).jpg" class="d-block img-fluid" alt="imagen producto">
-                  <div class="producto-text card-body mi-card-body">
-                    <p class="card-text">Tabaquera negra</p>
-                  </div>
-                </div>
-              </div>
-              <div class="col">
-                  <div class="items-mn card ">
-                      <img src="../img/fotoProducto2 (1).jpg" class="d-block img-fluid" alt="imagen producto">
-                    <div class="producto-text card-body mi-card-body ">
-                      <p class="card-text">Tabaquera gris</p>
-                    </div>
-                  </div>
-                </div>
-                <div class="col">
-                  <div class="items-mn card ">
-                      <img src="../img/fotoProducto3 (1).jpg" class="d-block img-fluid" alt="imagen producto">
-                    <div class="producto-text card-body mi-card-body ">
-                      <p class="card-text">Tabaquera beige</p>
-                    </div>
-                  </div>
-                </div>
-                <div class="col">
-                  <div class="items-mn card ">
-                      <img src="../img/miniF2.jpg" class="d-block img-fluid" alt="imagen producto">
-                    <div class="producto-text card-body mi-card-body ">
-                      <p class="card-text">Mini marron </p>
-                    </div>
-                  </div>
-                </div>
-                <div class="col">
-                  <div class="items-mn card ">
-                    <div class="ribbon">
-                      <p>Más vendido</p>
-                      <img src="https://freepikpsd.com/media/2019/10/corner-ribbon-png-3-Transparent-Images-Free.png" alt="..."/>
-                    </div>
-                    <img src="../img/miniF3.jpg" class="d-block img-fluid" alt="imagen producto">
-                    <div class="producto-text card-body mi-card-body">
-                      <p class="card-text">Mini negra</p>
-                    </div>
-                  </div>
-                </div>
-                <div class="col">
-                    <div class="items-mn card ">
-                        <img src="../img/miniF4.jpg" class="d-block img-fluid" alt="imagen producto">
-                      <div class="producto-text card-body mi-card-body ">
-                        <p class="card-text">Mini gris</p>
-                      </div>
-                    </div>
-                  </div>
-                  <div class="col">
-                    <div class="items-mn card ">
-                        <img src="../img/miniF1.jpg" class="d-block img-fluid" alt="imagen producto">
-                      <div class="producto-text card-body mi-card-body ">
-                        <p class="card-text">Mini beige</p>
-                      </div>
-                    </div>
-                  </div>
-                  <div class="col">
-                    <div class="items-mn card ">
-                        <img src="../img/conBolsilloMa.jpg" class="d-block img-fluid" alt="imagen producto">
-                      <div class="producto-text card-body mi-card-body ">
-                        <p class="card-text">Tabaquera bolsillo marron</p>
-                      </div>
-                    </div>
-                  </div>
-                  <div class="col">
-                    <div class="items-mn card">
-                      <div class="ribbon">
-                        <p>Más vendido</p>
-                        <img src="https://freepikpsd.com/media/2019/10/corner-ribbon-png-3-Transparent-Images-Free.png" alt="..."/>
-                      </div>
-                        <img src="../img/conBolsilloNe.jpg" class="d-block img-fluid" alt="imagen producto">
-                      <div class="producto-text card-body mi-card-body ">
-                        <p class="card-text">Tabaquera bolsillo negra</p>
-                      </div>
-                    </div>
-                  </div>
-                  <div class="col">
-                    <div class="items-mn card ">
-                        <img src="../img/conBolsillogris.jpg" class="d-block img-fluid" alt="imagen producto">
-                      <div class="producto-text card-body mi-card-body ">
-                        <p class="card-text">Tabaquera bolsillo gris</p>
-                      </div>
-                    </div>
-                  </div>
-                  
-                  <div class="col">
-                    <div class="items-mn card ">
-                      <div class="ribbon">
-                        <p>Más vendido</p>
-                        <img src="https://freepikpsd.com/media/2019/10/corner-ribbon-png-3-Transparent-Images-Free.png" alt="..."/>
-                      </div>
-                        <img src="../img/negra1.jpg" class="d-block img-fluid" alt="imagen producto">
-                      <div class="producto-text card-body mi-card-body ">
-                        <p class="card-text">Tabaquera negra cuero</p>
-                      </div>
-                    </div>
-                  </div>
-                  <div class="col">
-                    <div class="items-mn card ">
-                        <img src="../img/negra2.jpg" class="d-block img-fluid" alt="imagen producto">
-                      <div class="producto-text card-body mi-card-body ">
-                        <p class="card-text">Tabaquera negra cuero</p>
-                      </div>
-                    </div>
-                  </div>
-          </div>
+            <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 g-3" id='lista-productos'></div>
         </div>
       </div>
     </main>
@@ -220,7 +125,7 @@
       </div>
     </footer>
 
-
+    <script src="../app4.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-U1DAWAznBHeqEIlVSCgzq+c9gqGAJn5c/t99JyeKa9xxaYpSvHU5awsuZVVFIhvj" crossorigin="anonymous"></script>
   </body>
 </html>

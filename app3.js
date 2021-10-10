@@ -3,6 +3,34 @@
 const impuesto = 1.21;
 const descuento = 0.1;
 const cupones = ["cupon2021", "cupon2", "cupon3"]
+/* function Productos(nombre, precio, descuento){
+    this.nombre = nombre;
+    this.precio = precio;
+    this.descuento = descuento;
+}
+const productos = new Productos ({ nombre: "vaso", precio: "124", descuento: true}); */
+
+class Producto2 {
+    constructor(name, price, desc){
+        this.name = name
+        this.price = price
+        this.desc = desc
+    }
+    data () {
+        return console.log(this)
+    }
+}
+
+const p1 = new Producto2('Plato', '250', false)
+const p2 = new Producto2('vaso', '150', true)
+const p3 = new Producto2('tenerdor', '99', true)
+const p4 = new Producto2('cuchara', '34', false)
+
+p1.data()
+p2.data()
+p3.data()
+p4.data()
+
 const productos = [{
     nombre: 'vaso',
     precio: 124,
@@ -30,10 +58,10 @@ const productos = [{
 }]
 
 /* USO map*/
-/* const lista = productos.map((item, i) => {
+const lista = productos.map((item, i) => {
         return '\n'+`${i+1} - ${item.nombre} ($${item.precio})`
     })
- */
+
 
 
 /* Uso for */ 
