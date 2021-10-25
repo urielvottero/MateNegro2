@@ -101,3 +101,15 @@ main.contacto .img-bg {
   main.contacto img {
     max-width: 200px;
     padding-top: 20px; } }
+
+.lista-productos-seleccionados li {
+  text-align: left;
+  padding: 10px 5px; }
+  .lista-productos-seleccionados li span {
+    opacity: 0; }
+  .lista-productos-seleccionados li:hover {
+    cursor: pointer; }
+    .lista-productos-seleccionados li:hover span {
+      color: #c75554;
+      opacity: 1;
+      transition: all 230ms; }

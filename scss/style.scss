@@ -155,3 +155,21 @@ $color-secondary: #8a7469;
 
         }
     }
+
+    .lista-productos-seleccionados {
+        li {
+            text-align: left;
+            padding: 10px 5px;
+            span {
+                opacity: 0;
+            }
+            &:hover {
+                cursor: pointer;
+                span {
+                    color:#c75554;
+                    opacity: 1;
+                    transition: all 230ms;
+                }
+            }
+        }
+    }
