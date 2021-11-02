@@ -1,53 +1,31 @@
-const productos = [{
-    img: 'ImgP1.jpg',
-    name: 'Tabaquera marron oscuro',
-    ribbon: false
-},{
-    img: 'fotoProducto1 (1).jpg',
-    name: 'Tabaquera negra',
-    ribbon: false
-},{
-    img: 'fotoProducto2 (1).jpg',
-    name: 'Tabaquera gris',
-    ribbon: true
-},{
-    img: 'fotoProducto3 (1).jpg',
-    name: 'Tabaquera beige',
-    ribbon: false
-},{
-    img: 'miniF2.jpg',
-    name: 'Mini Marron',
-    ribbon: false
-},{
-    img: 'miniF4.jpg',
-    name: 'Mini Negra',
-    ribbon: false
-},{
-    img: 'miniF1.jpg',
-    name: 'Mini Gris',
-    ribbon: false
-},{
-    img: 'conBolsilloMa.jpg',
-    name: 'Con bolsillo marron',
-    ribbon: false
-},{
-    img: 'conBolsilloNe.jpg',
-    name: 'Con bolsillo negro',
-    ribbon: true
-},{
-    img: 'conBolsillogris.jpg',
-    name: 'Con bolsillo gris',
-    ribbon: true
-},{
-    img: 'negra1.jpg',
-    name: 'Negra de cuero texturado',
-    ribbon: false
-},{
-    img: 'negra2.jpg',
-    name: 'Negra de cuero',
-    ribbon: false
-}]
+const productos = $.ajax({
+    type: 'GET',
+    crossDomain: true,
+    async: false,
+    dataType: 'json',
+    url: 'http://127.0.0.1:3000/productos',
+    success: result => {
+        return result
+    }
+ }).responseJSON
 
+ function enviarPedido(data) {
+     console.log(data)
+    $.ajax({
+        type: 'POST',
+        crossDomain: true,
+        data: data,
+        url: 'http://127.0.0.1:3000/pedidos',
+        success: result => {
+            Swal.fire({
+                icon: 'success',
+                title: 'Genial!',
+                text: 'Gracias, nos comunicaremos en breve.'
+              })
+        }
+     })
+ }
+ 
 
 const contador = $('#contador')
 const productoPrincipal = $("#producto-principal")
@@ -56,6 +34,7 @@ const btnCarrito = $('#btn-carrito')
 
 let cartShopping = localStorage.getItem('cartShopping') || 0
 let idProductosSeleccionado = localStorage.getItem('idProductosSeleccionado') || []
+let totalCompra = 0
 
 if (idProductosSeleccionado.length > 0) {
     idProductosSeleccionado = idProductosSeleccionado.split(',', idProductosSeleccionado.length).map(Number)
@@ -122,7 +101,9 @@ for ([i, producto] of productos.entries()) {
 }
 
 let listaProductosCarrito = () => {
+    totalCompra = 0
     result = idProductosSeleccionado.map( (id, i) => {
+        totalCompra = productos[id].price + totalCompra
         return `<li>
             <span class="material-icons" onClick="borrarItem(${id})">delete_sweep</span> 
             ${productos[id].name}
@@ -149,7 +130,12 @@ function mostrarCarrito() {
     if(idProductosSeleccionado.length === 0) return false
     Swal.fire({
         title: 'Carrito de compras',
-        html:`<ul class="lista-productos-seleccionados">${listaProductosCarrito()}</ul>`,
+        html:`
+        <ul class="lista-productos-seleccionados">
+            ${listaProductosCarrito()}
+        </ul>
+        <b>Total: ${totalCompra}</b>
+        `,
         showCloseButton: true,
         showCancelButton: true,
         focusConfirm: false,
@@ -159,13 +145,34 @@ function mostrarCarrito() {
         cancelButtonAriaLabel: 'Salir del carrito'
       }).then((result) => {
         if (result.isConfirmed) {
-          alert('confirmo')
+            Swal.fire({
+                html:`
+                    <form class="p-4 pb-0">
+                        <div class="mb-3">
+                            <label for="exampleFormControlInput1" class="form-label">Email</label>
+                            <input type="email" class="form-control" id="formEmail" placeholder="name@example.com" required>
+                        </div>
+                        <div class="mb-3">
+                            <label for="exampleFormControlTextarea1" class="form-label">Tenés alguna consultas?</label>
+                            <textarea class="form-control" id="formConsulta" rows="4"></textarea>
+                        </div>
+                    </form>
+                `,
+                showCloseButton: true,
+                showCancelButton: true,
+                focusConfirm: false,
+                confirmButtonText:'Listo',
+                confirmButtonAriaLabel: 'Enviar formulario de consulta',
+                cancelButtonText:'Cancelar',
+                cancelButtonAriaLabel: 'Cancelar'
+              }).then((result) => {
+                  if (result.isConfirmed) {
+                    let email = $('#formEmail').val()
+                    let consulta = $('#formConsulta').val()
+                    enviarPedido({email, consulta})
+                  }
+              })
         }
       })
 }
 
-/*
-<div class="col-12">
-                
-              </div>
-*/
